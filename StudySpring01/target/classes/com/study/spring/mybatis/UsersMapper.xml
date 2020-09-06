@@ -1,5 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="users">
-
+	<insert id="insert" parameterType="usersDto">
+		insert into
+			users(
+				id,
+				pwd,
+				email,
+				regdate
+			)
+		values(
+			#{id},
+			#{pwd},
+			#{email},
+			sysdate
+		)
+	</insert>
+	
+	<select id="checkid" parameterType="string" resultType="string">
+		select
+			id
+		from
+			users
+		where
+			id=#{inputId}
+	</select>
+	
+	<select id="isValid" parameterType="usersDto" resultType="string">
+		select
+			id
+		from
+			users
+		where
+			id=#{id} and pwd=#{pwd}
+	 </select>
+	 
+	 <select id="getData" parameterType="string" resultType="usersDto">
+	 	select
+	 		id,
+	 		pwd,
+	 		email,
+	 		profile,
+	 		regdate
+	 	from
+	 		users
+	 	where
+	 		id=#{id}
+	 </select>
 </mapper>

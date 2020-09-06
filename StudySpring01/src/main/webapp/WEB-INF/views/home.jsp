@@ -12,8 +12,8 @@
 	<h1>home 화면입니다. </h1>
 	<c:choose>
 		<c:when test="${empty id }">
-			<a href="users/login_form.do">로그인</a>
-			<a href="users/signup_form.do">회원가입</a>
+			<a href="users/login-form.do">로그인</a>
+			<a href="users/signup-form.do">회원가입</a>
 		</c:when>
 		<c:otherwise>
 			<a href="users/private/info.do"><strong>${id }</strong></a>님 로그인중..
